@@ -1,0 +1,14 @@
+LIBRARY   XInput  
+EXPORTS  
+   DllMain		   					@1  
+   XInputGetState2					@2
+   XInputSetState2					@3
+   XInputGetCapabilities2			@4
+   XInputEnable2						@5
+   XInputGetDSoundAudioDeviceGuids2	@6
+   XInputGetBatteryInformation2		@7
+   XInputGetKeystroke2				@8
+   XInputGetStateEx2					@100
+   XInputWaitForGuideButton2			@101
+   XInputCancelGuideButtonWait2		@102
+   XInputPowerOffController2			@103
