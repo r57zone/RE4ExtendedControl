@@ -6,14 +6,14 @@
 Resident Evil 4 (2014) extended control for Xbox gamepads. The mod adds support for quick weapon switching, changes the run, inventory, and Ashley command buttons, and adds aiming to the right stick.
 
 # Control
-[![](https://github.com/r57zone/RE4ExtendedControl/assets/9499881/cfe5f18c-53bd-492c-b6f0-60f68fbc2d7f)](https://youtu.be/yFFzgANoAXo)
+[![](https://github-production-user-asset-6210df.s3.amazonaws.com/9499881/275010772-cfe5f18c-53bd-492c-b6f0-60f68fbc2d7f.png)](https://youtu.be/yFFzgANoAXo)
 
 The inventory is moved to the `Y` button and the map to the `Start` button. The start button is used to move items in the inventory.
 
 
 The run button is duplicated on the `RB` button.
 
-![](https://github.com/r57zone/RE4ExtendedControl/assets/9499881/b59e1f5e-dcd0-4322-bc51-58b5ff594a73)
+[![](https://github-production-user-asset-6210df.s3.amazonaws.com/9499881/275028951-b59e1f5e-dcd0-4322-bc51-58b5ff594a73.jpg)](https://youtu.be/yFFzgANoAXo)
 
 The DPAD buttons switch weapons through emulation of the inventory and action buttons. Weapons should be laid out in inventory from left to bottom, the first 4 weapons will switch to DPAD, the 4th weapon should be used for the sniper rifle. Selecting the 4th weapon is different because it turns on the aiming mode which swaps the stick places, if the sniper rifle is selected through the menu, you can turn on the mode by pressing the right stick. If after selecting the sniper rifle something else is selected through the inventory, then click again on the right stick the mode will be reset.
 
