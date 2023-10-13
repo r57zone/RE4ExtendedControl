@@ -6,7 +6,7 @@
 Resident Evil 4 (2014) extended control for Xbox gamepads. The mod adds support for quick weapon switching, changes the run, inventory, and Ashley command buttons, and adds aiming to the right stick.
 
 # Control
-[![](https://github.com/r57zone/RE4ExtendedControl/assets/9499881/cfe5f18c-53bd-492c-b6f0-60f68fbc2d7f)](https://youtu.be/)
+[![](https://github.com/r57zone/RE4ExtendedControl/assets/9499881/cfe5f18c-53bd-492c-b6f0-60f68fbc2d7f)](https://youtu.be/yFFzgANoAXo)
 
 The inventory is moved to the `Y` button and the map to the `Start` button. The start button is used to move items in the inventory.
 
@@ -21,6 +21,7 @@ The DPAD buttons switch weapons through emulation of the inventory and action bu
 1. Extract [archive](https://github.com/r57zone/RE4ExtendedControl/releases) to the game folder `C:\Games\ResidentEvil4\Bin32` (in the subfolder `Bin32`).
 2. If necessary, change the parameters in the `xinput1_3.ini` configuration file. You can disable right stick aiming and quick access to weapons by default, also you can disable them during the game on the keys `ALT + 9` and `ALT + 0`.
 3. In the game, go to Settings → Joystick Settings → Xbox 360 Joystick → Button Binding → Type II.
+4. In the graphics settings, switch to 60 frames per second.
 
 ## Download
 >Version for Windows 7, 8.1, 10, 11.
