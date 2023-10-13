@@ -6,14 +6,14 @@
 #define DLLEXPORT extern "C" __declspec(dllexport)
 
 int TickCounter = 0;
-bool FastAccessLeft = false;
-bool FastAccessUp = false;
-bool FastAccessRight = false;
-bool FastAccessDown = false;
+bool QuickAccessLeft = false;
+bool QuickAccessUp = false;
+bool QuickAccessRight = false;
+bool QuickAccessDown = false;
 bool SniperRiffleMode = false;
 
 int SkipPollCount = 0;
-bool FastAccess = true;
+bool QuickAccess = true;
 bool RightStickAIM = true;
 
 DLLEXPORT BOOL APIENTRY DllMain(HMODULE hModule,
@@ -25,7 +25,7 @@ DLLEXPORT BOOL APIENTRY DllMain(HMODULE hModule,
 	{
 	case DLL_PROCESS_ATTACH:
 		CIniReader IniFile("xinput1_3.ini");
-		FastAccess = IniFile.ReadBoolean("Main", "FastAccess", true);
+		QuickAccess = IniFile.ReadBoolean("Main", "QuickAccess", true);
 		RightStickAIM = IniFile.ReadBoolean("Main", "RightStickAIM", true);
 		break;
 	}
@@ -37,7 +37,7 @@ DLLEXPORT DWORD WINAPI XInputGetState2(_In_ DWORD dwUserIndex, _Out_ XINPUT_STAT
 	int Res = XInputGetState(dwUserIndex, pState);
 
 	if (SkipPollCount == 0 && (GetAsyncKeyState(VK_LMENU) & 0x8000) != 0 && (GetAsyncKeyState('9') & 0x8000) != 0) {
-		FastAccess = !FastAccess;
+		QuickAccess = !QuickAccess;
 		SkipPollCount = 30;
 	}
 
@@ -90,68 +90,68 @@ DLLEXPORT DWORD WINAPI XInputGetState2(_In_ DWORD dwUserIndex, _Out_ XINPUT_STAT
 			SkipPollCount = 30;
 		}
 
-		if (FastAccess) {
+		if (QuickAccess) {
 			if (pState->Gamepad.wButtons & XINPUT_GAMEPAD_DPAD_LEFT) {
 				pState->Gamepad.wButtons ^= XINPUT_GAMEPAD_DPAD_LEFT;
-				if (TickCounter == 0 && FastAccessUp == false && FastAccessLeft == false && FastAccessRight == false && FastAccessDown == false) {
-					FastAccessLeft = true;
+				if (TickCounter == 0 && QuickAccessUp == false && QuickAccessLeft == false && QuickAccessRight == false && QuickAccessDown == false) {
+					QuickAccessLeft = true;
 					SniperRiffleMode = false;
 					TickCounter = 230;
 				}
 			}
 			else if (pState->Gamepad.wButtons & XINPUT_GAMEPAD_DPAD_UP) {
 				pState->Gamepad.wButtons ^= XINPUT_GAMEPAD_DPAD_UP;
-				if (TickCounter == 0 && FastAccessUp == false && FastAccessLeft == false && FastAccessRight == false && FastAccessDown == false) {
-					FastAccessUp = true;
+				if (TickCounter == 0 && QuickAccessUp == false && QuickAccessLeft == false && QuickAccessRight == false && QuickAccessDown == false) {
+					QuickAccessUp = true;
 					SniperRiffleMode = false;
 					TickCounter = 255;
 				}
 			}
 			else if (pState->Gamepad.wButtons & XINPUT_GAMEPAD_DPAD_RIGHT) {
 				pState->Gamepad.wButtons ^= XINPUT_GAMEPAD_DPAD_RIGHT;
-				if (TickCounter == 0 && FastAccessUp == false && FastAccessLeft == false && FastAccessRight == false && FastAccessDown == false) {
-					FastAccessRight = true;
+				if (TickCounter == 0 && QuickAccessUp == false && QuickAccessLeft == false && QuickAccessRight == false && QuickAccessDown == false) {
+					QuickAccessRight = true;
 					SniperRiffleMode = false;
 					TickCounter = 285;
 				}
 			}
 			else if (pState->Gamepad.wButtons & XINPUT_GAMEPAD_DPAD_DOWN) {
 				pState->Gamepad.wButtons ^= XINPUT_GAMEPAD_DPAD_DOWN;
-				if (TickCounter == 0 && FastAccessUp == false && FastAccessLeft == false && FastAccessRight == false && FastAccessDown == false) {
-					FastAccessDown = true;
+				if (TickCounter == 0 && QuickAccessUp == false && QuickAccessLeft == false && QuickAccessRight == false && QuickAccessDown == false) {
+					QuickAccessDown = true;
 					SniperRiffleMode = true;
 					TickCounter = 315;
 				}
 			}
 		}
 
-		if (FastAccessLeft) {
+		if (QuickAccessLeft) {
 			if (TickCounter < 230 && TickCounter > 180)
 				pState->Gamepad.wButtons |= pState->Gamepad.wButtons |= XINPUT_GAMEPAD_START;
 		}
 
-		if (FastAccessUp) {
+		if (QuickAccessUp) {
 			if (TickCounter < 255 && TickCounter > 205)
 				pState->Gamepad.wButtons |= pState->Gamepad.wButtons |= XINPUT_GAMEPAD_START;
 			else if (TickCounter < 205 && TickCounter > 180)
 				pState->Gamepad.wButtons |= pState->Gamepad.wButtons |= XINPUT_GAMEPAD_DPAD_DOWN;
 		}
 
-		if (FastAccessRight) {
+		if (QuickAccessRight) {
 			if (TickCounter < 285 && TickCounter > 235)
 				pState->Gamepad.wButtons |= pState->Gamepad.wButtons |= XINPUT_GAMEPAD_START;
 			else if (TickCounter < 235 && TickCounter > 180)
 				pState->Gamepad.wButtons |= pState->Gamepad.wButtons |= XINPUT_GAMEPAD_DPAD_DOWN;
 		}
 
-		if (FastAccessDown) {
+		if (QuickAccessDown) {
 			if (TickCounter < 315 && TickCounter > 265)
 				pState->Gamepad.wButtons |= pState->Gamepad.wButtons |= XINPUT_GAMEPAD_START;
 			else if (TickCounter < 265 && TickCounter > 180)
 				pState->Gamepad.wButtons |= pState->Gamepad.wButtons |= XINPUT_GAMEPAD_DPAD_DOWN;
 		}
 
-		if (FastAccessLeft || FastAccessUp || FastAccessRight || FastAccessDown) {
+		if (QuickAccessLeft || QuickAccessUp || QuickAccessRight || QuickAccessDown) {
 			if (TickCounter < 180 && TickCounter > 130)
 				pState->Gamepad.wButtons |= pState->Gamepad.wButtons |= XINPUT_GAMEPAD_A;
 			else if (TickCounter < 100 && TickCounter > 50)
@@ -162,10 +162,10 @@ DLLEXPORT DWORD WINAPI XInputGetState2(_In_ DWORD dwUserIndex, _Out_ XINPUT_STAT
 
 		if (TickCounter > 0) {
 			if (TickCounter == 1) {
-				FastAccessLeft = false;
-				FastAccessUp = false;
-				FastAccessRight = false;
-				FastAccessDown = false;
+				QuickAccessLeft = false;
+				QuickAccessUp = false;
+				QuickAccessRight = false;
+				QuickAccessDown = false;
 			}
 			TickCounter--;
 		}
