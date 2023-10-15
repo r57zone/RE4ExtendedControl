@@ -20,13 +20,20 @@ The DPAD buttons switch weapons through emulation of the inventory and action bu
 ## Setup
 1. Extract [archive](https://github.com/r57zone/RE4ExtendedControl/releases) to the game folder `C:\Games\ResidentEvil4\Bin32` (in the subfolder `Bin32`).
 2. If necessary, change the parameters in the `xinput1_3.ini` configuration file. You can disable right stick aiming and quick access to weapons by default, also you can disable them during the game on the keys `ALT + 9` and `ALT + 0`.
-3. In the game, go to Settings → Joystick Settings → Xbox 360 Joystick → Button Binding → Type II.
+3. In the game, go to Settings → Joystick Settings → Xbox 360 Joystick → Button Binding → Type II. If you want to aim only with the right stick, you can turn off the right stick aiming parameter `RightStickAIM=0` in the config and select control type III.
 4. In the graphics settings, switch to 60 frames per second.
 
 ## Download
 >Version for Windows 7, 8.1, 10, 11.
 
 **[Download](https://github.com/r57zone/RE4ExtendedControl/releases)**
+
+## Building
+1. Download the sources and unzip.
+2. [Download Microsoft Visual Studio Code 2017+](https://code.visualstudio.com/download) и [install](https://github.com/r57zone/RE4ExtendedControl/assets/9499881/69dafce6-fd57-4768-83eb-c1bb69901f07).
+3. Change the tools and SDK to your own in the project properties.
+4. Select the `Release` build type (if `Debug` is installed) and `x86`, then compile the project.
+5. Change the names of the exported functions, remove the number 2, using [CFF Explorer](https://ntcore.com/?page_id=388).
 
 ## Feedback
 `r57zone[at]gmail.com`
