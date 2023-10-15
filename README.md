@@ -29,11 +29,11 @@ The DPAD buttons switch weapons through emulation of the inventory and action bu
 **[Download](https://github.com/r57zone/RE4ExtendedControl/releases)**
 
 ## Building
-1. Download the sources and unzip.
-2. [Download Microsoft Visual Studio Code 2017+](https://code.visualstudio.com/download) и [install](https://github.com/r57zone/RE4ExtendedControl/assets/9499881/69dafce6-fd57-4768-83eb-c1bb69901f07).
-3. Change the tools and SDK to your own in the project properties.
-4. Select the `Release` build type (if `Debug` is installed) and `x86`, then compile the project.
-5. Change the names of the exported functions, remove the number 2, using [CFF Explorer](https://ntcore.com/?page_id=388).
+1. Download the sources and unzip them.
+2. [Download](https://code.visualstudio.com/download) and [install](https://github.com/r57zone/RE4ExtendedControl/assets/9499881/69dafce6-fd57-4768-83eb-c1bb69901f07) Microsoft Visual Studio Code 2017+.
+3. Update the project properties with your own tools and SDK.
+4. Choose the `Release` build type (if `Debug` is installed) and `x86`, then compile the project.
+5. Modify the names of the exported functions by removing the number 2 using [CFF Explorer](https://ntcore.com/?page_id=388).
 
 ## Feedback
 `r57zone[at]gmail.com`
