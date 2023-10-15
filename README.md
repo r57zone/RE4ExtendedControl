@@ -31,7 +31,7 @@ The DPAD buttons switch weapons through emulation of the inventory and action bu
 ## Building
 1. Download the sources and unzip them.
 2. [Download](https://code.visualstudio.com/download) and [install](https://github.com/r57zone/RE4ExtendedControl/assets/9499881/69dafce6-fd57-4768-83eb-c1bb69901f07) Microsoft Visual Studio Code 2017+.
-3. Update the project properties with your own tools and SDK.
+3. Update the project properties with your tools and SDK.
 4. Choose the `Release` build type (if `Debug` is installed) and `x86`, then compile the project.
 5. Modify the names of the exported functions by removing the number 2 using [CFF Explorer](https://ntcore.com/?page_id=388).
 
